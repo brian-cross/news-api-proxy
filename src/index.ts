@@ -1,4 +1,5 @@
 import express from "express";
+import helmet from "helmet";
 import dotenv from "dotenv";
 import { createProxyMiddleware } from "http-proxy-middleware";
 
@@ -17,6 +18,8 @@ const proxy = createProxyMiddleware({
 });
 
 const app = express();
+
+app.use(helmet());
 
 app.use("/api", proxy);
 
