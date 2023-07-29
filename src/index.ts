@@ -1,6 +1,7 @@
 import express from "express";
 import helmet from "helmet";
 import dotenv from "dotenv";
+import cors from "cors";
 import { createProxyMiddleware } from "http-proxy-middleware";
 
 dotenv.config();
@@ -18,6 +19,8 @@ const proxy = createProxyMiddleware({
 });
 
 const app = express();
+
+app.use(cors());
 
 app.use(helmet());
 
